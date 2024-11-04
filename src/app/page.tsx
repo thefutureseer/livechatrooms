@@ -12,14 +12,6 @@ export default function Home() {
 
       </div>
 
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none rounded-t-[50%]">
-
-            By { "Tannehill on Earth"}
-        </div>
-
-      </div>
 
 
 
@@ -36,6 +28,14 @@ export default function Home() {
           <div className="absolute left-3 top-5 h-5 w-5 rounded-full bg-gray-500 dark:bg-gray-600 opacity-60 shadow-[inset_2px_2px_6px_rgba(0,0,0,0.4)]"></div>
           <div className="absolute right-4 top-10 h-4 w-4 rounded-full bg-gray-400 dark:bg-gray-500 opacity-60 shadow-[inset_2px_2px_5px_rgba(0,0,0,0.3)]"></div>
           <div className="absolute left-6 bottom-6 h-3 w-3 rounded-full bg-gray-500 dark:bg-gray-700 opacity-70 shadow-[inset_2px_2px_4px_rgba(0,0,0,0.3)]"></div>
+        </div>
+
+      </div>
+      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
+
+        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none rounded-t-[50%]">
+
+            By { "Tannehill on Earth"}
         </div>
 
       </div>
