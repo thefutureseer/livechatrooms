@@ -1,0 +1,26 @@
+generator client {
+  provider = "prisma-client-js"  // Generates the Prisma Client for database access
+}
+
+datasource db {
+  provider  = "postgresql"        // Specifies PostgreSQL as the database provider
+  url       = env("DATABASE_URL") // Connection string for the database
+  directUrl = env("DIRECT_URL")   // Direct URL for connecting to the database, if needed
+  relationMode: 'prisma'
+}
+
+model chatroom {
+  id        string   @id @default(cuid())
+  createdat DateTime @default(now())
+  updatedat DateTime @updatedat
+  messages  message[]
+}
+
+model message {
+  id         string   @id @default(cuid())
+  createdat  DateTime @default(now())
+  updatedat  DateTime @updatedat
+  text       string
+  chatroom   chatroom @realation(fields: [chatroomid], refrence: [id])
+  chatroomid string
+}
