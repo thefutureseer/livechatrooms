@@ -9,7 +9,7 @@ const Plume = () => {
     after:dark:opacity-40 
     sm:before:w-[280px] sm:before:h-[280px] 
     sm:after:w-[200px] sm:after:h-[200px] 
-    lg:before:h-[360px] lg:before:w-[360px]">
+    lg:before:h-[360px] lg:before:w-[360px] animate-float">
   </div>
   )
 };
