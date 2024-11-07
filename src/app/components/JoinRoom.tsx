@@ -22,7 +22,7 @@ const JoinRoom = () =>{
       type="text"
     >
     </input>
-    <button className="p-3 bg-spaceBlack" onClick={()=>joinRoom(roomIdInput)}>CLICK TO JOIN ROOM</button>
+    <button className="p-3 ml-4 bg-spaceBlack" onClick={()=>joinRoom(roomIdInput)}>CLICK TO JOIN ROOM</button>
   </div>
  )
 };

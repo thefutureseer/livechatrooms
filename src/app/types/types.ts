@@ -3,3 +3,11 @@ export interface PageProps {
     roomId: string
   }
 }
+
+export interface MessageProps {
+  initialMessages: {
+    text: string
+    id: string
+  }[]
+  roomId: string
+}

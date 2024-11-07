@@ -1,16 +1,13 @@
 const Plume = () => {
   return (
-    <div className="relative z-[-1] flex place-items-center 
-    before:absolute before:h-[200px] before:w-[200px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial 
-    before:from-white before:to-transparent before:blur-2xl before:content-[''] 
-    after:absolute after:-z-20 after:h-[150px] after:w-[150px] after:translate-x-1/3 
-    after:bg-gradient-conic after:from-sky-400 after:via-pink-100 after:blur-2xl after:content-[''] 
-    before:dark:bg-gradient-to-br before:dark:from-transparent 
-    after:dark:opacity-40 
-    sm:before:w-[280px] sm:before:h-[280px] 
-    sm:after:w-[200px] sm:after:h-[200px] 
-    lg:before:h-[360px] lg:before:w-[360px] animate-float">
-  </div>
-  )
+    <div className="relative z-[-1] flex place-items-center animate-float">
+      {/* Outer Blur Circle */}
+      <div className="absolute h-[200px] w-[200px] -translate-x-1/2 rounded-full bg-gradient-radial from-white to-transparent blur-2xl dark:bg-gradient-to-br dark:from-transparent sm:h-[280px] sm:w-[280px] lg:h-[360px] lg:w-[360px]"></div>
+      
+      {/* Inner Conic Gradient Circle */}
+      <div className="absolute -z-20 h-[150px] w-[150px] translate-x-1/3 bg-gradient-conic from-sky-400 via-pink-100 blur-2xl dark:opacity-40 sm:h-[200px] sm:w-[200px]"></div>
+    </div>
+  );
 };
+
 export default Plume;

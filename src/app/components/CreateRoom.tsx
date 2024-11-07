@@ -18,7 +18,12 @@ const CreateRoom = () => {
   return ( 
     <div>
       <div>      
-        <button className="shadow-glow-blue p-10" onClick={createTheRoom}>CREATE A ROOM</button>
+        <button className="shadow-glow-blue p-10" onClick={createTheRoom}>
+          <p className="animate-float text-center text-2xl">{"↓"}
+          </p>
+            <div className="mx-auto w-0 h-0 border-l-8 border-r-8 border-b-8 border-transparent border-b-gray-600"></div>
+          CREATE A ROOM
+        </button>
       </div>
     </div>
    )

@@ -26,12 +26,12 @@ const config: Config = {
       },
       keyframes: {
         float: {
-          '0%, 100%': { transform: 'translateY(-5px)' },
-          '50%': { transform: 'translateY(5px)' },
+          '0%, 100%': { transform: 'translateY(-6px)' },
+          '50%': { transform: 'translateY(2px)' },
         },
       },
       animation: {
-        float: 'float 4s ease-in-out infinite', // Adjust the duration and easing for smooth effect
+        float: 'float 7s ease-in-out infinite', // Adjust the duration and easing for smooth effect
       },
     },
   },
