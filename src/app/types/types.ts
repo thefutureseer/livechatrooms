@@ -11,3 +11,7 @@ export interface MessageProps {
   }[]
   roomId: string
 }
+
+export interface MessageFieldProps {
+  roomId: string
+}

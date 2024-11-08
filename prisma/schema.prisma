@@ -1,26 +1,30 @@
 generator client {
-  provider = "prisma-client-js"  // Generates the Prisma Client for database access
+  provider = "prisma-client-js" // Generates the Prisma Client for database access
 }
 
 datasource db {
-  provider  = "postgresql"        // Specifies PostgreSQL as the database provider
-  url       = env("DATABASE_URL") // Connection string for the database
-  directUrl = env("DIRECT_URL")   // Direct URL for connecting to the database, if needed
-  relationMode: 'prisma'
+  provider     = "postgresql"        // Specifies PostgreSQL as the database provider
+  url          = env("DATABASE_URL") // Connection string for the database
+  directUrl    = env("DIRECT_URL")   // Direct URL for connecting to the database, if needed
 }
 
 model chatroom {
-  id        string   @id @default(cuid())
-  createdat DateTime @default(now())
-  updatedat DateTime @updatedat
-  messages  message[]
+  id         String    @id @default(cuid()) @map("id")
+  createdAt  DateTime  @default(now()) @map("created_at")
+  updatedAt  DateTime  @updatedAt @map("updated_at")
+  messages   message[]
+
+  @@index([createdAt]) //  index for better performance
+
 }
 
 model message {
-  id         string   @id @default(cuid())
-  createdat  DateTime @default(now())
-  updatedat  DateTime @updatedat
-  text       string
-  chatroom   chatroom @realation(fields: [chatroomid], refrence: [id])
-  chatroomid string
+  id         String    @id @default(cuid()) @map("id")
+  createdAt  DateTime  @default(now()) @map("created_at")
+  updatedAt  DateTime  @updatedAt @map("updated_at")
+  text       String
+  chatroom   chatroom  @relation(fields: [chatroomid], references: [id])
+  chatroomid String
+
+  @@index([chatroomid]) //  index for better performance
 }
