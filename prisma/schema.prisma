@@ -23,7 +23,6 @@ model message {
   createdAt  DateTime  @default(now()) @map("created_at")
   updatedAt  DateTime  @updatedAt @map("updated_at")
   text       String
-  chatroom   chatroom  @relation(fields: [chatroomid], references: [id])
   chatroomid String
 
   @@index([chatroomid]) //  index for better performance
