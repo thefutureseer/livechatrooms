@@ -16,7 +16,7 @@ const JoinRoom = () =>{
  return (
   <div>
     <input 
-      className=" placeholder-grey-200 p-5" 
+      className="bg-black placeholder-grey-200 p-5" 
       onChange={({target})=> (roomIdInput = target.value)} 
       placeholder="ENTER ROOM CODE"
       type="text"

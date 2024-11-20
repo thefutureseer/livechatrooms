@@ -1,19 +1,33 @@
 "use client"
 import { useRouter } from "next/navigation";
+import {validate as validateUUID} from "uuid";
+
 
 const CreateRoom = () => {
-  let inputID = '';
-
   const router = useRouter();
 
   const createTheRoom = async () => {
-    //fetch api to create rooom
-    const res = await fetch('api/rooms/create');
-    //get the id to push into the route
-    const roomId: string = await res.text();
-    //push id into the route
-    router.push(`/room/${roomId}`);
-  }
+    try {
+      const res = await fetch("/api/rooms/create", { method: "POST" });
+      console.log("Response received:", res);
+
+      if (!res.ok) {
+        throw new Error("Failed to create the room");
+      }
+
+      const roomId = await res.text();
+
+      // Validate UUID before pushing
+      if (!validateUUID(roomId)) {
+        throw new Error(`Invalid roomId received: ${roomId}`);
+      }
+
+      router.push(`/room/${roomId}`);
+    } catch (error) {
+      console.error("Error creating room:", error);
+      alert("Something went wrong. Please try again.");
+    }
+  };
 
   return ( 
     <div>

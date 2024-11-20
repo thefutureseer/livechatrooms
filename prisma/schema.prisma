@@ -5,25 +5,24 @@ generator client {
 datasource db {
   provider     = "postgresql"        // Specifies PostgreSQL as the database provider
   url          = env("DATABASE_URL") // Connection string for the database
-  directUrl    = env("DIRECT_URL")   // Direct URL for connecting to the database, if needed
 }
 
 model chatroom {
-  id         String    @id @default(cuid()) @map("id")
+  id         String    @id @default(uuid()) @map("id")
   createdAt  DateTime  @default(now()) @map("created_at")
   updatedAt  DateTime  @updatedAt @map("updated_at")
   messages   message[]
 
-  @@index([createdAt]) //  index for better performance
-
+  @@index([createdAt], name: "idx_chatroom_created_at") // Named index for clarity
 }
 
 model message {
-  id         String    @id @default(cuid()) @map("id")
+  id         String    @id @default(uuid()) @map("id")
   createdAt  DateTime  @default(now()) @map("created_at")
   updatedAt  DateTime  @updatedAt @map("updated_at")
   text       String
-  chatroomid String
+  chatroomid String @map("chatroom_id") 
+  chatroom   chatroom  @relation(fields: [chatroomid], references: [id], onDelete: Cascade)
 
-  @@index([chatroomid]) //  index for better performance
+  @@index([chatroomid], name: "idx_message_chatroomid") // Named index for clarity
 }
